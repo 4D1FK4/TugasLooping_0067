@@ -26,12 +26,16 @@ void bersihkanLayar() {
     #endif
 }
 
+// --- OPTIMASI ALGORITMA MATEMATIKA ---
+
+// Efisiensi: Menggunakan metode 6k +/- 1. Membuang pengecekan genap dan kelipatan 3.
 bool isPrima(int n) {
     if (n <= 1) return false;
     if (n <= 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
     
     int i = 5;
+    // While loop berjalan jauh lebih cepat karena melompat 6 angka tiap iterasi
     while (i * i <= n) {
         if (n % i == 0 || n % (i + 2) == 0) return false;
         i += 6;
@@ -39,6 +43,7 @@ bool isPrima(int n) {
     return true;
 }
 
+// Efisiensi: Iterasi hanya terjadi maksimal ~46 kali untuk limit integer C++
 bool isFibonacci(int n) {
     if (n < 0) return false;
     if (n == 0 || n == 1) return true;
@@ -64,10 +69,13 @@ bool isPalindrome(int n) {
     return (original == reversed);
 }
 
+// --- OPTIMASI KODE (DRY PRINCIPLE) ---
+// Membuat tipe data baru berupa "Pointer ke Fungsi" yang mereturn bool dan menerima int
 typedef bool (*FungsiPengecekan)(int);
 
+// Prosedur ini menangani SEMUA jenis input, proses, output, dan riwayat sekaligus
 void prosesPengecekan(string namaTipe, FungsiPengecekan fungsiCek) {
-
+    // 1. Validasi Input (Hanya menerima angka positif)
     while (true) {
         cout << "Masukkan angka untuk cek " << namaTipe << ": ";
         if (cin >> angka && angka >= 0) break;
@@ -76,17 +84,22 @@ void prosesPengecekan(string namaTipe, FungsiPengecekan fungsiCek) {
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
+    // 2. Eksekusi fungsi matematika yang dikirim via parameter
     bool hasil = fungsiCek(angka);
 
+    // 3. Tampilkan Hasil
     cout << "-> HASIL: " << angka << (hasil ? " ADALAH " : " BUKAN ") << namaTipe << ".\n";
 
+    // 4. Simpan ke histori
     histori.push_back({angka, namaTipe, hasil});
 
+    // Jeda
     cout << "\nTekan Enter untuk melanjutkan...";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
 }
 
+// --- FITUR TAMBAHAN ---
 void tampilkanHistori() {
     cout << "\n=== RIWAYAT PENGECEKAN ===\n";
     if (histori.empty()) {
@@ -99,8 +112,7 @@ void tampilkanHistori() {
                  << "\t| Hasil: " << (histori[i].status ? "Ya" : "Bukan") << "\n";
             i++;
         }
-
-        }
+    }
     cout << "\nTekan Enter untuk kembali...";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
@@ -123,6 +135,7 @@ void simpanFile() {
     cin.get();
 }
 
+// --- MAIN MENU ---
 int main() {
     // Alokasi memori awal untuk vector agar lebih cepat dan tidak membebani RAM
     histori.reserve(100); 
