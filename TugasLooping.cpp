@@ -3,3 +3,12 @@
 #include <string>
 #include <fstream>
 #include <limits>
+
+using namespace std;
+
+// --- STRUKTUR DATA & VARIABEL GLOBAL ---
+struct Riwayat {
+    int nilai;
+    string jenis;
+    bool status;
+};
