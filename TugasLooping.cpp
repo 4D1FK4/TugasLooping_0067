@@ -99,3 +99,9 @@ void tampilkanHistori() {
                  << "\t| Hasil: " << (histori[i].status ? "Ya" : "Bukan") << "\n";
             i++;
         }
+
+        }
+    cout << "\nTekan Enter untuk kembali...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+}
