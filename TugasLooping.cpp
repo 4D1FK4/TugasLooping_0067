@@ -64,3 +64,4 @@ bool isPalindrome(int n) {
     return (original == reversed);
 }
 
+typedef bool (*FungsiPengecekan)(int);
