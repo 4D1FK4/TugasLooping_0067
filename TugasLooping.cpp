@@ -122,3 +122,28 @@ void simpanFile() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
 }
+
+int main() {
+    // Alokasi memori awal untuk vector agar lebih cepat dan tidak membebani RAM
+    histori.reserve(100); 
+    pilihan = -1;
+
+    while (pilihan != 0) {
+        bersihkanLayar();
+        cout << "==================================\n";
+        cout << "      ENGINE PENGECEKAN v2.0      \n";
+        cout << "==================================\n";
+        cout << "1. Cek Bilangan Prima\n";
+        cout << "2. Cek Bilangan Fibonacci\n";
+        cout << "3. Cek Bilangan Genap/Ganjil\n";
+        cout << "4. Cek Bilangan Palindrome\n";
+        cout << "5. Lihat Riwayat (Histori)\n";
+        cout << "6. Export Riwayat (.txt)\n";
+        cout << "0. Keluar\n";
+        cout << "Pilih menu (0-6): ";
+        
+        if (!(cin >> pilihan)) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue; // Skip ke iterasi while berikutnya jika input bukan angka
+        }
