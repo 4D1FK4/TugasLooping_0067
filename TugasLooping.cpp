@@ -147,3 +147,18 @@ int main() {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue; // Skip ke iterasi while berikutnya jika input bukan angka
         }
+
+        switch (pilihan) {
+            // Mengirim string dan NAMA FUNGSI sebagai parameter (Function Pointer)
+            case 1: prosesPengecekan("Prima", isPrima); break;
+            case 2: prosesPengecekan("Fibonacci", isFibonacci); break;
+            case 3: prosesPengecekan("Genap", isGenap); break;
+            case 4: prosesPengecekan("Palindrome", isPalindrome); break;
+            case 5: tampilkanHistori(); break;
+            case 6: simpanFile(); break;
+            case 0: cout << "Sistem dihentikan.\n"; break;
+            default: cout << "Opsi tidak valid!\n"; break;
+        }
+    }
+    return 0;
+}
