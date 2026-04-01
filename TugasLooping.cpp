@@ -79,3 +79,9 @@ void prosesPengecekan(string namaTipe, FungsiPengecekan fungsiCek) {
     bool hasil = fungsiCek(angka);
 
     cout << "-> HASIL: " << angka << (hasil ? " ADALAH " : " BUKAN ") << namaTipe << ".\n";
+
+    histori.push_back({angka, namaTipe, hasil});
+
+    cout << "\nTekan Enter untuk melanjutkan...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
