@@ -16,3 +16,12 @@ struct Riwayat {
 vector<Riwayat> histori;
 int angka;
 int pilihan;
+
+// --- UTILITY FUNGSI ---
+void bersihkanLayar() {
+    #if defined(_WIN32)
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
