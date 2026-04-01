@@ -38,3 +38,16 @@ bool isPrima(int n) {
     }
     return true;
 }
+
+bool isFibonacci(int n) {
+    if (n < 0) return false;
+    if (n == 0 || n == 1) return true;
+    
+    int a = 0, b = 1, c = 1;
+    while (c < n) {
+        a = b;
+        b = c;
+        c = a + b;
+    }
+    return (c == n);
+}
