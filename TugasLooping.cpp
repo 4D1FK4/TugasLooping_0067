@@ -105,3 +105,20 @@ void tampilkanHistori() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
 }
+
+void simpanFile() {
+    ofstream file("Laporan_Angka.txt");
+    if (file.is_open()) {
+        file << "=== LAPORAN SISTEM ===\n";
+        for (size_t i = 0; i < histori.size(); i++) {
+            file << i+1 << ". Angka: " << histori[i].nilai 
+                 << " | Tipe: " << histori[i].jenis 
+                 << " | Status: " << (histori[i].status ? "Valid" : "Tidak Valid") << "\n";
+        }
+        file.close();
+        cout << "Data sukses di-export ke 'Laporan_Angka.txt'!\n";
+    }
+    cout << "\nTekan Enter untuk melanjutkan...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+}
