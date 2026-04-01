@@ -75,3 +75,7 @@ void prosesPengecekan(string namaTipe, FungsiPengecekan fungsiCek) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+
+    bool hasil = fungsiCek(angka);
+
+    cout << "-> HASIL: " << angka << (hasil ? " ADALAH " : " BUKAN ") << namaTipe << ".\n";
