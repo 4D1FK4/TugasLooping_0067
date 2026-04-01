@@ -65,3 +65,5 @@ bool isPalindrome(int n) {
 }
 
 typedef bool (*FungsiPengecekan)(int);
+
+void prosesPengecekan(string namaTipe, FungsiPengecekan fungsiCek) {
