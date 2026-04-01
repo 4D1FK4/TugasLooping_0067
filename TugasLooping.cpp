@@ -67,3 +67,11 @@ bool isPalindrome(int n) {
 typedef bool (*FungsiPengecekan)(int);
 
 void prosesPengecekan(string namaTipe, FungsiPengecekan fungsiCek) {
+
+    while (true) {
+        cout << "Masukkan angka untuk cek " << namaTipe << ": ";
+        if (cin >> angka && angka >= 0) break;
+        cout << "Input tidak valid! Masukkan bilangan bulat positif.\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
