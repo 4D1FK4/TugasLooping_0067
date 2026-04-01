@@ -51,3 +51,15 @@ bool isFibonacci(int n) {
     }
     return (c == n);
 }
+
+bool isGenap(int n) { return (n % 2 == 0); }
+
+bool isPalindrome(int n) {
+    int reversed = 0, remainder, original = n;
+    while (n > 0) {
+        remainder = n % 10;
+        reversed = reversed * 10 + remainder;
+        n /= 10;
+    }
+    return (original == reversed);
+}
