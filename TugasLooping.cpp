@@ -85,3 +85,17 @@ void prosesPengecekan(string namaTipe, FungsiPengecekan fungsiCek) {
     cout << "\nTekan Enter untuk melanjutkan...";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
+}
+
+void tampilkanHistori() {
+    cout << "\n=== RIWAYAT PENGECEKAN ===\n";
+    if (histori.empty()) {
+        cout << "Riwayat masih kosong.\n";
+    } else {
+        int i = 0;
+        while (i < histori.size()) {
+            cout << i+1 << ". Angka: " << histori[i].nilai 
+                 << "\t| Tipe: " << histori[i].jenis 
+                 << "\t| Hasil: " << (histori[i].status ? "Ya" : "Bukan") << "\n";
+            i++;
+        }
