@@ -12,3 +12,7 @@ struct Riwayat {
     string jenis;
     bool status;
 };
+
+vector<Riwayat> histori;
+int angka;
+int pilihan;
